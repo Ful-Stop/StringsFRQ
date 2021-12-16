@@ -7,7 +7,8 @@ public class ErrorLog {
 
     /** Precondition: message is a valid Error log entry */
     public ErrorLog(String message) {
-        /* part a */
+        machineId = message.substring(0, message.indexOf(":"));
+        description = message.substring(message.indexOf(":") + 1);
     }
 
     /** Returns true if the description in this error log entry

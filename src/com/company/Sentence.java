@@ -30,8 +30,6 @@ public class Sentence {
             else{
                 return -1;}
             }
-
-
         return nStrIndex;
     }
 
@@ -41,8 +39,9 @@ public class Sentence {
      *
      */
     public void replaceNthTime(String str, int n, String repl) {
-        if (findNthTime(str, n) != -1){
-            currSent.replace(currSent.substring(findNthTime(str, n), findNthTime(str, n) + str.length()), repl);
+        int index = findNthTime(str, n);
+        if (index != -1){
+            currSent = currSent.substring(0, index) + repl + currSent.substring(index + str.length());
         }
     }
 
@@ -52,8 +51,13 @@ public class Sentence {
      * Postcondition: the current sentence is not modified.
      */
     public int findLastTime(String str) {
-        /* part c - you must call findNthTime here */
-        return -1;  // replace this
+        int n = 1;
+        int index = -1;
+        while (findNthTime(str, n) != -1){
+            index = findNthTime(str, n);
+            n++;
+        }
+        return index;
     }
 
     public static void main(String[] args) {
