@@ -16,9 +16,14 @@ public class ErrorLog {
      * Postcondition: the description is unchanged
      */
     public boolean containsKey(String keyword) {
-        /* part b */
-        return false;   // replace this
-    }
+        if (description.indexOf(keyword) != -1){
+            if (description.indexOf(keyword) == 0 || Character.toString(description.charAt(description.indexOf(keyword) - 1)).equals(" ")){
+                if (description.indexOf(keyword) + keyword.length() - 1 == description.length() - 1 || Character.toString(description.charAt(description.indexOf(keyword) + keyword.length())).equals(" ")){
+                    return true;}
+                }
+            }
+        return false;
+        }
 
     public String getMachineId() { return machineId;}
     public String getDescription() { return description; }
@@ -40,6 +45,7 @@ public class ErrorLog {
         System.out.println("message 6 " + er6.containsKey("disk"));
         System.out.println("message 6 " + er6.containsKey("error"));
         System.out.println("message 7 " + er7.containsKey("disk"));
+
 
 
     }
